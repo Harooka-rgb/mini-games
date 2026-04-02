@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Layout, Typography, Row, Col, Card, Button, ConfigProvider } from 'antd';
-import { CircleDot, Scissors, Hash, ArrowLeft } from 'lucide-react';
+import { CircleDot, Scissors, Hash, ArrowLeft, Target } from 'lucide-react';
 import RockPaper from './games/RockPaper';
 import GuessNumber from './games/GuessNumber';
 import TicTacToe from './games/TicTacToe';
+import Clicker from './games/Clicker';
 
 const { Header, Content } = Layout;
 const { Title, Text } = Typography;
@@ -29,7 +30,14 @@ const games = [
     description: 'Сможешь найти число от 1 до 100?',
     icon: <Hash size={40} />,
     color: '#722ed1'
-  }
+  },
+  {
+  id: 'clicker',
+  title: 'Поймай цель',
+  description: 'Проверь свою реакцию за 30 секунд',
+  icon: <Target size={40} />,
+  color: '#eb2f96'
+}
 ];
 
 export default function App() {
@@ -41,6 +49,7 @@ export default function App() {
       case 'tictactoe': return <TicTacToe />;
       case 'rps': return <RockPaper />;
       case 'guess': return <GuessNumber />;
+      case 'clicker': return <Clicker />
       default: return null;
     }
   };
