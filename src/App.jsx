@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Layout, Typography, Row, Col, Card, Button, ConfigProvider } from 'antd';
-import { CircleDot, Scissors, Hash, ArrowLeft, Target } from 'lucide-react';
+import { CircleDot, Scissors, Hash, ArrowLeft, Target, BrickWall } from 'lucide-react';
 import RockPaper from './games/RockPaper';
 import GuessNumber from './games/GuessNumber';
 import TicTacToe from './games/TicTacToe';
 import Clicker from './games/Clicker';
+import Breakout from './games/Breakout';
 
 const { Header, Content } = Layout;
 const { Title, Text } = Typography;
@@ -37,6 +38,13 @@ const games = [
   description: 'Проверь свою реакцию за 30 секунд',
   icon: <Target size={40} />,
   color: '#eb2f96'
+},
+{
+  id: 'breakout',
+  title: 'Арканоид',
+  description: 'Разбей все кирпичи мячом',
+  icon: <BrickWall size={40} />, // Или любая подходящая иконка
+  color: '#fa8c16'
 }
 ];
 
@@ -50,6 +58,7 @@ export default function App() {
       case 'rps': return <RockPaper />;
       case 'guess': return <GuessNumber />;
       case 'clicker': return <Clicker />
+      case 'breakout': return <Breakout />;
       default: return null;
     }
   };
